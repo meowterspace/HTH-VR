@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class trans : MonoBehaviour {
 
-	public KeyCode increaseAlpha;
-	public KeyCode decreaseAlpha;
-	public float alphaLevel = .5f;
+
 	// Use this for initialization
 	void Start () {
 
@@ -14,6 +12,8 @@ public class trans : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		GetComponent<SpriteRenderer> ().color = new Color (1, 1, 1, alphaLevel);
-	}
+        if(Input.GetKeyDown(KeyCode.A))
+    		GetComponent<MeshRenderer>().material.color = new Color (1, 1, 1, 0);
+
+    }
 }

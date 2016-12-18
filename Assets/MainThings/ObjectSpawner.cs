@@ -20,7 +20,7 @@ public class ObjectSpawner : MonoBehaviour {
 	void Update () {
 		//if (Input.GetKeyDown(KeyCode.A))
 		if (lastTime + 1 < Time.time) { 
-			FireGift (Random.Range (0, points.Length));
+			FireGift (Random.Range (0, gifts.Length));
 			lastTime = Time.time;
 		}
 	}
