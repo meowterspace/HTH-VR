@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 using System;
+using SimpleJSON;
 
 public class Netman : MonoBehaviour {
 
@@ -10,8 +11,8 @@ public class Netman : MonoBehaviour {
 		StartCoroutine(GetText());
 	//	StartCoroutine(GetTexture());
 	}
+		
 	string recText = "";
-	string data = "";
 	IEnumerator GetText() {
 		while (true) {
 			UnityWebRequest www = UnityWebRequest.Get ("http://localhost:8000/test.json");
@@ -26,8 +27,15 @@ public class Netman : MonoBehaviour {
 				// Or retrieve results as binary data
 				byte[] results = www.downloadHandler.data;
 
-				data = JsonUtility.FromJson<string> (recText);
-				print (data);
+
+				var N = JSON.Parse(recText);
+				var versionString = N["songName"].Value;        // versionString will be a string containing "1.0"
+				var versionNumber = N["Duration"].AsFloat;      // versionNumber will be a float containing 1.0
+				//var name = N["data"]["sampleArray"][2]["name"];// name will be a string containing "sub object"
+
+				string val = N["data"]["sampleArray"][0];      // val contains "string value"
+				print (val);
+
 			}
 			yield return new WaitForSeconds (5);
 		}
