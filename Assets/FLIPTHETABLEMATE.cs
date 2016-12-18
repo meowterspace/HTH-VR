@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FLIPTHETABLEMATE : MonoBehaviour {
     float timemate;
+    public int scoreCount = 0;
     // Use this for initialization
     void Start() {
         timemate = Time.time;
