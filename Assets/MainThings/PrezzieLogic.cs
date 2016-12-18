@@ -17,7 +17,7 @@ public class PrezzieLogic : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
         transform.position = Vector3.MoveTowards(transform.position, player.transform.position, SPEED * Time.deltaTime);
 	}
     
