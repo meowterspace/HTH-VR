@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class ProjectileBall : MonoBehaviour {
 
+    GameObject boom;
 
     Transform camPos;
 
 	void Start () {
         camPos = Camera.main.transform;
+        boom = GameObject.FindObjectOfType<ObjectSpawner>().boom;
     }
 
     void FixedUpdate () {
@@ -19,6 +21,7 @@ public class ProjectileBall : MonoBehaviour {
         Debug.Log(collision.gameObject.name);
         if (collision.gameObject.tag == "gift") {
             Destroy(collision.gameObject);
+            Destroy(Instantiate(boom, transform.position, Quaternion.identity), 5);
             Destroy(gameObject);
         }
     }

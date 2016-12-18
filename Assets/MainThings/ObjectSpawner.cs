@@ -5,6 +5,9 @@ using UnityEngine;
 public class ObjectSpawner : MonoBehaviour {
 	float lastTime = 0;
 
+    
+    public GameObject boom;
+
     [SerializeField]
     GameObject[] gifts;
 
